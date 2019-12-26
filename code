@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+ 
+//Class declaration.
+class Demo
+{
+    //Private block  to declare data member( X,Y ) of integer type.
+    private:
+        int X;
+        int Y;
+ 
+    //Public block of member function to access data members.
+    public:
+        //Declaration of parameterized constructor to initialize data members.
+            Demo (int a, int b); 
+        //Declaration of copy constructor to initialize data members.
+            Demo (const Demo &d); 
+        //To display output on screen.
+        void    Display();
+     
+};//End of class
+ 
+//Definition of parameterized constructor.
+Demo:: Demo(int a, int b)
+{
+    X = a;
+    Y = b;
+}
+ 
+//Definition of copy constructor.
+Demo:: Demo(const Demo &d)
+{
+    X = d.X;
+    Y = d.Y;
+}
+ 
+ 
+//Definition of Display () member function.
+void Demo:: Display()
+{
+    cout << endl << "X: " << X;
+    cout << endl << "Y: " << Y << endl;
+}
+ 
+int main()
+{
+    Demo d1(10,20) ; //Ctor automatically call when object is created.
+ 
+    //Display value of data member.
+    cout << endl <<"D1 Object: " << endl; 
+    cout << "Value after initialization : " ;
+    d1.Display();   
+ 
+    //Intialize object with other object using copy constructor
+    Demo d2 = Demo(d1);//also write like this :Demo d2(d1);
+     
+    //Display value of data member.
+    cout << endl << "D2 Object: " << endl;
+    cout << "Value after initialization : ";
+    d2.Display();   
+     
+    return 0;
+}
